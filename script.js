@@ -18,7 +18,9 @@ function shuffleDeck(cards) {
 
 function resolveCard(cardText) {
   // Cards may hae {text a|text b} - choose one of the options and remove the extras
-  let re = /{([^\|]+)(?:\|([^\|]+))?}/;
+  let re = /{[^}]+}/gm;
+  cardText.matchAll(re);
+  
 }
 
 function setupDeck(deck) {
