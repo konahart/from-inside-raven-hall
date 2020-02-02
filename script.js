@@ -8,16 +8,25 @@ request.responseType = 'json';
 request.send();
 request.onload = function() {
   const cards = request.response;
-  populateHeader(cards);
-  showHeroes(superHeroes);
+  var deck = shuffleDeck(cards);
+  setupDeck(deck);
 }
 
 function shuffleDeck(cards) {
   
 }
 
+function resolveCard(cardText) {
+  // Cards may hae {text a|text b} - choose one of the options and remove the extras
+  let re = /{([^\|]+)(?:\|([^\|]+))?}/;
+}
+
+function setupDeck(deck) {
+  
+}
+
 // <- -> controls
-function plusSlides(n) {
+function drawCard(n) {
   showSlides(slideIndex += n);
 }
 
