@@ -1,6 +1,21 @@
 var slideIndex = 1;
 showSlides(slideIndex);
 
+let requestURL = '/cards.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+  const cards = request.response;
+  populateHeader(cards);
+  showHeroes(superHeroes);
+}
+
+function shuffleDeck(cards) {
+  
+}
+
 // <- -> controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
