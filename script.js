@@ -26,7 +26,7 @@ function addSlides(slides) {
     const slideDiv = document.createElement('div');
     slideDiv.className = "mySlides fade"
     const p = document.createElement('p');
-    p.textContent = slide;
+    p.innerHTML = slide;
     slideDiv.appendChild(p);
     
     // add slide to slideshow
