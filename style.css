@@ -17,12 +17,16 @@ img{
 }
 
 .slideshow {
-  max-width: 300px;
   position:relative;
   margin:auto;
 }
 
 .mySlides{
+  width: 7cm;
+  height: 12cm;
+  border-radius: 5mm;
+  background-color: black;
+  color: white;
   display:none;
 }
 
