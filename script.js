@@ -9,7 +9,7 @@ request.send();
 request.onload = function() {
   var cards = request.response;
   for (card of cards["prompts"]) {
-    card = resolveCard(card);
+    card = resolveText(card);
   }
   var deck = shuffle(cards["prompts"]);
   console.log(deck.length);
@@ -24,22 +24,20 @@ function shuffle(array) {
   return array;
 }
 
-function resolveCard(cardText) {
-  // Cards may hae {text a|text b} - choose one of the options and remove the extras
-  //console.log(cardText)
-  let matches = cardText.matchAll(/{[^}]+}/gm);
+function resolveText(text) {
+  // Text may contain {text a|text b} - choose one of the options and remove the extras
+  let matches = text.matchAll(/{[^}]+}/gm);
   for (match of matches) {
     let options = match.toString().replace(/[{}]/gi, "");
     options = options.split("|");
     let choice = options[Math.floor(Math.random() * options.length)].toString();
-    cardText = cardText.replace(match, choice);
+    text = text.replace(match, choice);
   }
-  console.log(cardText);
-  if (cardText.includes("{")||cardText.includes("}")) {
-    console.warn("Extraneous {}s found! " + cardText);
+  if (text.includes("{")||text.includes("}")) {
+    console.warn("Extraneous {}s found! " + text);
   }
   
-  return cardText;
+  return text;
 }
 
 function setupDeck(deck) {
