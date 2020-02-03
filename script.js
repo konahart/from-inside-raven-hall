@@ -5,71 +5,12 @@ async function main() {
 
 async function loadGame() {
   const resp = await fetch('/cards.json')
-  const cards = await resp.json()
-
-  let resolvedCards = [];
-  for (card of cards["prompts"]) {
-    card = resolveText(card);
-    if (card != null) {
-      resolvedCards.push(card);
-    }
-  }
-  cards["prompts"] = resolvedCards;
-  console.log(cards["prompts"][0]);
-  cards["prompts"] = shuffle(cards["prompts"]);
-  console.log(cards["prompts"][0]);
-  prepareDeck(cards);
-  showDeck(cards);
-}
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-function randomFromArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-function resolveText(text) {
-  // Text may contain {text a|text b} - choose one of the options and remove the extras
-  let matches = text.matchAll(/{[^}]+}/gm);
-  for (match of matches) {
-    let options = match.toString().replace(/[{}]/gi, "");
-    options = options.split("|");
-    let choice = randomFromArray(options).toString();
-    text = text.replace(match, choice);
-  }
-  if (text.includes("{")||text.includes("}")) {
-    console.warn("Extraneous {}s found! \"" + text + "\"");
-    return null;
-  }
-  return text;
-}
-
-function prepareDeck(cards) {
-  let promptsPerAct = cards["prompts"].length / Object.keys(cards["rituals"]).length;
-  console.log(cards["prompts"].length);
-  console.log(cards["rituals"].length);
-  console.log(promptsPerAct);
-  let i = 1;
-  for (ritual of cards["rituals"]) {
-    let ritualPrompt = "Ritual: " + ritual[0];
-    console.log(ritualPrompt);
-    console.log(i);
-    console.log(i * promptsPerAct);
-    cards["prompts"].splice(i * promptsPerAct, 0, ritualPrompt);
-    ++i;
-  }
-  // insert final ritual
-  //cards["prompts"].push(ritualPrompt);
+  const gameSlides = await resp.json()
+  addSlides(gameSlides)
 }
 
 // <- -> controls
-function drawCard(n) {
+function nextSlide(n) {
   showSlides(slideIndex += n);
 }
 
@@ -78,18 +19,18 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showDeck(cards) {
+function addSlides(slides) {
   var slideshow = document.getElementsByClassName("slideshow")[0];
-  for (card of cards["prompts"]) {
+  for (slide of slides) {
     // create slide
-    const slide = document.createElement('div');
-    slide.className = "mySlides fade"
+    const slideDiv = document.createElement('div');
+    slideDiv.className = "mySlides fade"
     const p = document.createElement('p');
-    p.textContent = card;
-    slide.appendChild(p);
+    p.textContent = slide;
+    slideDiv.appendChild(p);
     
     // add slide to slideshow
-    slideshow.appendChild(slide);
+    slideshow.appendChild(slideDiv);
   }
 }
 
