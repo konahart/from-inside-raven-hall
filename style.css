@@ -27,6 +27,9 @@ img{
   border-radius: 5mm;
   background-color: black;
   color: white;
+  padding: 15% 30px;
+  margin: auto;
+  text-align: center;
   display:none;
 }
 
