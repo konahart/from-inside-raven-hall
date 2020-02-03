@@ -23,14 +23,15 @@ function addSlides(slides) {
   var slideshow = document.getElementsByClassName("slideshow")[0];
   for (slide of slides) {
     // create slide
-    const slideDiv = document.createElement('div');
+    const slideDiv = document.createElement('div')
     slideDiv.className = "mySlides fade"
-    const p = document.createElement('p');
-    p.innerHTML = slide;
-    slideDiv.appendChild(p);
+    const p = document.createElement('p')
+    p.innerHTML = slide
+    p.className = "fadeup"
+    slideDiv.appendChild(p)
     
     // add slide to slideshow
-    slideshow.appendChild(slideDiv);
+    slideshow.appendChild(slideDiv)
   }
 }
 
