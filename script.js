@@ -25,16 +25,18 @@ function addSlides(slides) {
     // create slide
     const slideDiv = document.createElement('div')
     slideDiv.className = "mySlides fade"
-    const p = document.createElement('p')
-    p.innerHTML = slide["text"]
-    p.className = "fadeup glow " + slide["type"]
     if (slide["type"] == "ritual") {
       const div = document.createElement('div')
       div.textContent = "Ritual"
       div.className = "ritual-header"
       slideDiv.appendChild(div)
     }
-    slideDiv.appendChild(p)
+    for (para of slide["text"]) {
+      const p = document.createElement('p')
+      p.innerHTML = para
+      p.className = "fadeup glow " + slide["type"]
+      slideDiv.appendChild(p)
+    }
     
     // add slide to slideshow
     slideshow.appendChild(slideDiv)
