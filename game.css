@@ -1,0 +1,30 @@
+/* CSS files add styling rules to your content */
+
+.premise {
+  color: white;
+  font-style: italic;
+}
+
+.instruction {
+  color:#9964ff;
+}
+
+.begin {
+  color: white;
+  font-style: italic;
+  text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #a100ff, 0 0 2px #a100ff;
+}
+
+.prompt {
+  color: white;
+}
+
+.ritual-header {
+  color: #cc65ff;
+  font-size: 24pt;
+  text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #ffb80078, 0 0 2px #ffb8008c;
+}
+
+.ritual {
+  color: white;
+}
