@@ -26,8 +26,14 @@ function addSlides(slides) {
     const slideDiv = document.createElement('div')
     slideDiv.className = "mySlides fade"
     const p = document.createElement('p')
-    p.innerHTML = slide
-    p.className = "fadeup"
+    p.innerHTML = slide["text"]
+    p.className = "fadeup glow " + slide["type"]
+    if (slide["type"] == "ritual") {
+      const div = document.createElement('div')
+      div.textContent = "Ritual"
+      div.className = "ritual-header"
+      slideDiv.appendChild(div)
+    }
     slideDiv.appendChild(p)
     
     // add slide to slideshow
