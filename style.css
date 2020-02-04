@@ -19,6 +19,7 @@ img{
 .slideshow {
   position:relative;
   margin:auto;
+  max-width: 10cm;
 }
 
 .mySlides{
@@ -27,10 +28,14 @@ img{
   border-radius: 5mm;
   background-color: black;
   color: white;
-  padding: 15% 30px;
+  padding: 40% 30px;
   margin: auto;
   text-align: center;
   display:none;
+}
+
+.glow {
+  text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #8a2dc066, 0 0 2px #8a2dc066;
 }
 
 .prev, .next{
@@ -73,17 +78,13 @@ img{
 }
 
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+  -webkit-animation: fade 1.5s;
+  animation: fade 1.5s;
 }
 
 .fadeup {
-  -webkit-animation-name: fadeup;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fadeup;
-  animation-duration: 1.5s;
+  -webkit-animation: fadeup 1s cubic-bezier(0, 0.99, 0.24, 0.99);
+  animation: fadeup 1s cubic-bezier(0, 0.99, 0.24, 0.99);
 }
 
 @-webkit-keyframes fade {
@@ -97,11 +98,11 @@ img{
 }
 
 @-webkit-keyframes fadeup {
-  from {transform: translateY(0); opacity: .4}
-  to {transform: translateY(10); opacity: 1}
+  from {transform: translateY(5px); opacity: .4}
+  to {transform: translateY(0); opacity: 1}
 }
 
 @keyframes fadeup {
-  from {transform: translateY(0); opacity: .4}
-  to {transform: translateY(10); opacity: 1}
+  from {transform: translateY(5px); opacity: .4}
+  to {transform: translateY(0); opacity: 1}
 }
