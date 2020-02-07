@@ -57,5 +57,17 @@ function showSlides(n) {
   
 }
 
+function checkKey(e) {
+    e = e || window.event;
+
+    if (e.key == 'ArrowLeft' || e.key == 'ArrowUp') {
+        nextSlide(-1)
+    }
+    else if (e.key == 'ArrowRight' || e.key == 'ArrowDown' || e.key == " ") {
+        nextSlide(1)
+    }
+}
+
 var slideIndex = 1
+document.onkeydown = checkKey
 main()
