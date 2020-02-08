@@ -52,9 +52,29 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-
+  togglePrev(slideIndex)
+  toggleNext(slideIndex, slides.length)
+  
   slides[slideIndex-1].style.display = "block";
   
+}
+
+function togglePrev(slideIndex) {
+  var prev = document.getElementsByClassName("prev")[0];
+  if (slideIndex == 1) {
+    prev.style.display = "none"
+  } else {
+    prev.style.display = "block"
+  }
+}
+
+function toggleNext(slideIndex, slideCount) {
+  var next = document.getElementsByClassName("next")[0];
+  if (slideIndex == slideCount) {
+    next.style.display = "none"
+  } else {
+    next.style.display = "block"
+  }
 }
 
 function checkKey(e) {
