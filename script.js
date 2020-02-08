@@ -37,6 +37,14 @@ function addSlides(slides) {
       p.className = "fadeup glow " + slide["type"]
       slideDiv.appendChild(p)
     }
+    const x = document.createElement('a')
+    x.textContent = "X"
+    x.className = "x"
+    x.onclick = function () {
+      this.parentElement.remove()
+      showSlides(1)
+    };
+    slideDiv.appendChild(x)
     
     // add slide to slideshow
     slideshow.appendChild(slideDiv)

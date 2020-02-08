@@ -38,14 +38,8 @@ img{
   text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #8a2dc066, 0 0 2px #8a2dc066;
 }
 
-.prev, .next{
+.prev, .next, .x {
   cursor:pointer;
-  position:absolute;
-  top:50%;
-  width:auto;
-  margin-top:-22px;
-  padding:16px;
-  color:white;
   font-weight:bold;
   font-size:18px;
   transition: 0.6s ease;
@@ -53,13 +47,35 @@ img{
   user-select: none;
 }
 
+.prev, .next {
+  position:absolute;
+  color:white;
+  top:50%;
+  width:auto;
+  margin-top:-22px;
+  padding:16px;
+}
+
 .next {
   right:0;
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.x {
+  position: absolute;
+  color: black;
+  border-radius: 3px 0 0 3px;
+  top: 88%;
+  padding: 5% 34%;
+  margin: -5% -35%;
+}
+
+.prev:hover, .next:hover{
   background-color: rgba(0,0,0,0.8)
+}
+
+.x:hover {
+  color:white;
 }
 
 .dot {
