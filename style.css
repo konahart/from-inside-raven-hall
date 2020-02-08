@@ -34,14 +34,21 @@ img{
   display:none;
 }
 
+.mySlides:hover .x {
+  color: white;
+}
+
 .glow {
   text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #8a2dc066, 0 0 2px #8a2dc066;
 }
 
-.prev, .next, .x {
-  cursor:pointer;
+.prev, .next, .x, .xstyle {
   font-weight:bold;
   font-size:18px;
+}
+
+.prev, .next, .x {
+  cursor:pointer;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
@@ -66,15 +73,15 @@ img{
   color: black;
   border-radius: 3px 0 0 3px;
   top: 88%;
-  padding: 5% 34%;
-  margin: -5% -35%;
+  padding: 7px 15px;
+  margin: -7px -15px;
 }
 
 .prev:hover, .next:hover{
   background-color: rgba(0,0,0,0.8)
 }
 
-.x:hover {
+.x:hover, .xstyle {
   color:white;
 }
 
