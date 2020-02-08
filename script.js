@@ -89,10 +89,14 @@ function checkKey(e) {
     e = e || window.event;
 
     if (e.key == 'ArrowLeft' || e.key == 'ArrowUp') {
-        nextSlide(-1)
+      nextSlide(-1)
     }
     else if (e.key == 'ArrowRight' || e.key == 'ArrowDown' || e.key == " ") {
-        nextSlide(1)
+      nextSlide(1)
+    } else if (e.key == 'Escape' || e.key == 'Delete' || e.key == 'x') {
+      var slides = document.getElementsByClassName("mySlides");
+      slides[slideIndex-1].remove()
+      showSlides(1)
     }
 }
 
